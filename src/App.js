@@ -46,7 +46,7 @@ function App() {
     // console.log("Reload Game");
     setisCross(false);
     setwinMessage("");
-    array.fill('null',0,8);
+    array.fill('null',0,9);
   }
 
 
