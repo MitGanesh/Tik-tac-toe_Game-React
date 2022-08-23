@@ -29,21 +29,21 @@ function Home() {
 
   function checkWinner() {
     if (array[0] === array[1] && array[0] === array[2] && array[0] !== "null") {
-      setwinMessage(`${array[0]} Won the Game`);
+      setwinMessage(`${array[0]} won the Game`);
     } else if (array[3] === array[4] && array[3] === array[5] && array[3] !== "null") {
-      setwinMessage(`${array[3]} Won the Game`);
+      setwinMessage(`${array[3]} won the Game`);
     } else if (array[6] === array[7] && array[6] === array[8] && array[6] !== "null") {
-      setwinMessage(`${array[6]} Won the Game`);
+      setwinMessage(`${array[6]} won the Game`);
     } else if (array[0] === array[3] && array[0] === array[6] && array[0] !== "null") {
-      setwinMessage(`${array[0]} Won the Game`);
+      setwinMessage(`${array[0]} won the Game`);
     } else if (array[1] === array[4] && array[1] === array[7] && array[1] !== "null") {
-      setwinMessage(`${array[1]} Won the Game`);
+      setwinMessage(`${array[1]} won the Game`);
     } else if (array[2] === array[5] && array[2] === array[8] && array[2] !== "null") {
-      setwinMessage(`${array[2]} Won the Game`);
+      setwinMessage(`${array[2]} won the Game`);
     } else if (array[0] === array[4] && array[0] === array[8] && array[0] !== "null") {
-      setwinMessage(`${array[0]} Won the Game`);
+      setwinMessage(`${array[0]} won the Game`);
     } else if (array[2] === array[4] && array[2] === array[6] && array[2] !== "null") {
-      setwinMessage(`${array[2]} Won the Game`);
+      setwinMessage(`${array[2]} won the Game`);
     }
   }
 
@@ -70,20 +70,20 @@ function Home() {
   return (
     <center>
       {winMessage ? (
-        <div className='my-5'>
+        <div className='msg'>
           <h1 className='text-uppercase'>{winMessage}</h1>
-          <button type="button" className="btn btn-info" onClick={reload}>Reset</button>
+          <button type="button" className="resetBtn" onClick={reload}>Reset</button>
         </div>
       ) : (
-        <div className='my-5'>
+        <div className='msg'>
           {
             flag ? (
-              <h1 className='text-uppercase'>Match Draw</h1>
+              <h1 className='text-uppercase'>match draw!</h1>
             ) : (
               <h1 className='text-uppercase'>Draw {isCross ? "Cross" : "Circle"}</h1>
             )
           }
-          {flag && <button type="button" className="btn btn-info" onClick={reload}>Reset</button>}
+          {flag && <button type="button" className="resetBtn" onClick={reload}>Reset</button>}
         </div>
       )}
 

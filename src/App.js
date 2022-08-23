@@ -1,14 +1,24 @@
 import React from 'react'
-// import Home from './Components/Home';
+import Home from './Components/Home';
 import Landing from './Components/Landing';
+import ReactDOM from "react-dom/client";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 
 function App() {
   return (
-    <div>
-      <Landing/>
-      {/* <Home/> */}
-    </div>
+    <BrowserRouter>
+      <div>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/game" element={<Home />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
