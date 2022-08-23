@@ -1,7 +1,6 @@
 import React from 'react'
 import Home from './Components/Home';
 import Landing from './Components/Landing';
-import ReactDOM from "react-dom/client";
 import {
   BrowserRouter,
   Routes,
