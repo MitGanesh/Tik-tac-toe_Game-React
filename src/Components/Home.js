@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import '../App.css';
 import Icon from './Icon';
+import { motion } from 'framer-motion';
 
 const array = new Array(9).fill("null")
 
@@ -69,37 +70,44 @@ function Home() {
 
   return (
     <center>
-      {winMessage ? (
-        <div className='msg'>
-          <h1 className='text-uppercase'>{winMessage}</h1>
-          <button type="button" className="resetBtn" onClick={reload}>Reset</button>
-        </div>
-      ) : (
-        <div className='msg'>
-          {
-            flag ? (
-              <h1 className='text-uppercase'>match draw!</h1>
-            ) : (
-              <h1 className='text-uppercase'>Draw {isCross ? "Cross" : "Circle"}</h1>
-            )
-          }
-          {flag && <button type="button" className="resetBtn" onClick={reload}>Reset</button>}
-        </div>
-      )}
+      <motion.div
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity:0}}
+        transition={{duration:3}}
+      >
+        {winMessage ? (
+          <div className='msg'>
+            <h1 className='text-uppercase'>{winMessage}</h1>
+            <button type="button" className="resetBtn" onClick={reload}>Reset</button>
+          </div>
+        ) : (
+          <div className='msg'>
+            {
+              flag ? (
+                <h1 className='text-uppercase'>match draw!</h1>
+              ) : (
+                <h1 className='text-uppercase'>Draw {isCross ? "Cross" : "Circle"}</h1>
+              )
+            }
+            {flag && <button type="button" className="resetBtn" onClick={reload}>Reset</button>}
+          </div>
+        )}
 
-      <div className='grid'>
-        {
-          array.map((ele, index) => {
-            return (
-              <div key={index} onClick={() => { changeIcon(index) }}>
-                <div className="box">
-                  <Icon name={ele} />
+        <div className='grid'>
+          {
+            array.map((ele, index) => {
+              return (
+                <div key={index} onClick={() => { changeIcon(index) }}>
+                  <div className="box">
+                    <Icon name={ele} />
+                  </div>
                 </div>
-              </div>
-            )
-          })
-        }
-      </div>
+              )
+            })
+          }
+        </div>
+      </motion.div>
     </center>
 
   );

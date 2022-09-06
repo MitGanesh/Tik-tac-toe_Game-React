@@ -6,16 +6,20 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import { AnimatePresence } from 'framer-motion';
+
 
 
 function App() {
   return (
     <BrowserRouter>
       <div>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/game" element={<Home />} />
-        </Routes>
+        <AnimatePresence exitBeforeEnter >
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/game" element={<Home />} />
+          </Routes>
+        </AnimatePresence>
       </div>
     </BrowserRouter>
   );
